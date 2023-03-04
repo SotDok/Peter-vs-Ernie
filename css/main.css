@@ -1,0 +1,47 @@
+body {
+  margin-top: 10vh;
+  padding: 0;
+  background-color: #dedbdb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  #pitch {
+    background-color: grey;
+   height: 80vh;
+   width: 80vw;
+   position: relative; 
+   border: 1px solid black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+
+  #player {
+    background-color: green;
+    width: 15vh;
+    height: 15vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  #ball {
+   background-color: yellow;
+   width: 5vh;
+   height: 5vh;
+   position: absolute;
+   bottom: 0;
+   left: 15vh;
+  
+}
+
+  #keeper {
+    width: 15vh;
+    height: 15vh;
+    background-color: purple;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+   }
