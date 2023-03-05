@@ -1,49 +1,58 @@
-body {
-  margin-top: 10vh;
+* {
+  margin: 0;
   padding: 0;
-  background-color: grey;
-  display: flex;
-  justify-content: center;
- 
-  }
+}
 
-  #pitch {
-    background-color: green;
-    width: 80vw;
-    height: 80vh;
-    position: relative;
-  }
+#board {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
-  #player {
-    background-color: white;
-    width: 5vw;
-    height: 12vh;
-    position: absolute;
-    left: 15vh;
-    bottom: 0;
-  }
-  
-  
-  #ball {
-    background-color: black;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: absolute;
-    left: 25vh;
-    bottom: 0;
-    }
-  
-    #keeper {
-      background-color: white;
-      width: 5vw;
-      height: 12vh;
-      position: absolute;
-      right: 15vh;
-      bottom: 0;
-      
-    }
- 
+#player {
+  background-color: white;;
+  width: 20px;
+  height: 100px;
+  position: absolute;
+  left: 5px;
+  border-radius: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-  
-  
+#opponent {
+  width: 20px;
+  background-color: green;
+  height: 100px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  border-radius: 10%;
+  transform: translateY(-50%);
+}
+
+#playerscore, #oppscore {
+  color: white;
+  font-size: 50px;
+  position: absolute;
+  top: 15px;
+}
+
+#playerscore {
+  left: 40%;
+}
+
+#oppscore {
+  right: 40%;
+}
+
+#middleline {
+  width: 1px;
+  border: 1px solid white;
+  position: absolute;
+  top: 0%;
+  right: 50%;
+  height: 100vh;
+  transform: translateX(-50%);
+}
