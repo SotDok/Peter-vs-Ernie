@@ -1,58 +1,18 @@
-* {
+body {
+  background-color: black;
   margin: 0;
   padding: 0;
 }
-
+  
 #board {
-  background-color: black;
-  width: 100vw;
+  background-color: green;
   height: 100vh;
-  overflow: hidden;
+  margin: auto;
 }
 
 #player {
-  background-color: white;;
-  width: 20px;
+  background-color: fuchsia;
   height: 100px;
+  width: 150px;
   position: absolute;
-  left: 5px;
-  border-radius: 10%;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#opponent {
-  width: 20px;
-  background-color: green;
-  height: 100px;
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  border-radius: 10%;
-  transform: translateY(-50%);
-}
-
-#playerscore, #oppscore {
-  color: white;
-  font-size: 50px;
-  position: absolute;
-  top: 15px;
-}
-
-#playerscore {
-  left: 40%;
-}
-
-#oppscore {
-  right: 40%;
-}
-
-#middleline {
-  width: 1px;
-  border: 1px solid white;
-  position: absolute;
-  top: 0%;
-  right: 50%;
-  height: 100vh;
-  transform: translateX(-50%);
 }
