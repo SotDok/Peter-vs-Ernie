@@ -5,14 +5,18 @@ body {
 }
   
 #board {
-  background-color: green;
+  background-color: white;
   height: 100vh;
   margin: auto;
 }
 
 #player {
-  background-color: fuchsia;
-  height: 100px;
-  width: 150px;
+  background-color: blue;
+  position: absolute;
+  left: 0;
+}
+
+.enemy {
+  background-color: red;
   position: absolute;
 }
