@@ -6,17 +6,38 @@ body {
   
 #board {
   background-color: white;
+  background-image: url("/images/backgroundLOL.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
   height: 100vh;
   margin: auto;
 }
 
 #player {
-  background-color: blue;
+  background-image: url("/images/petergr.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
   left: 0;
 }
 
 .enemy {
-  background-color: red;
+  background-image: url("/images/Ernie.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50%;
   position: absolute;
 }
+
+.bullet {
+  background-color: silver;
+  background-size: contain;
+  position: absolute;
+  border-radius: 50%;
+}
+
+
+
+
