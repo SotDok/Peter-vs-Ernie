@@ -1,11 +1,9 @@
-
-
-
 class Game {
   constructor() {
     this.player = null;
     this.enemiesArr = [];
     this.bulletsArr = [];
+    this.score = 0;
   }
   play() {
     this.player = new Player();
@@ -28,24 +26,26 @@ class Game {
         bulletInstance.moveRight();
         this.detectBulletCollision(bulletInstance);
         this.removeBullet(bulletInstance);
+        
       });
-    }, 50);
+    }, 100);
   }
   attachEventListeners() {
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowUp") {
-        
         this.player.moveUp();
       } else if (e.key === "ArrowDown") {
-        
         this.player.moveDown();
       } else if (e.key === " ") {
-        
-        const myBullet = new Bullet (this.player.positionX, this.player.positionY);
+        const myBullet = new Bullet(
+          this.player.positionX,
+          this.player.positionY
+        );
         this.bulletsArr.push(myBullet);
       }
     });
   }
+  //collision on X and Y axis.
   detectCollision(enemyInstance) {
     if (
       this.player.positionY + this.player.height >= enemyInstance.positionY &&
@@ -53,25 +53,34 @@ class Game {
       this.player.positionX + this.player.width >= enemyInstance.positionX &&
       this.player.positionX <= enemyInstance.positionX + enemyInstance.width
     ) {
-    
-  
-       
+      console.log("we have died");
+      // redirecting to new page when you lose.
+      // window.location.href ="../tryagain.html";
     }
   }
   detectBulletCollision(bulletInstance) {
     this.enemiesArr.forEach((enemyInstance) => {
       if (
         bulletInstance.positionY >= enemyInstance.positionY &&
-        bulletInstance.positionY <= enemyInstance.positionY + enemyInstance.height &&
-        bulletInstance.positionX + bulletInstance.width >= enemyInstance.positionX &&
-        bulletInstance.positionX <= enemyInstance.positionX + enemyInstance.width
+        bulletInstance.positionY <=
+          enemyInstance.positionY + enemyInstance.height &&
+        bulletInstance.positionX + bulletInstance.width >=
+          enemyInstance.positionX &&
+        bulletInstance.positionX <=
+          enemyInstance.positionX + enemyInstance.width
       ) {
-        
+        //Setting and updating the score
+        this.score += 5;
+        const scoreElement = document.getElementById("score");
+        scoreElement.textContent = "Score: " + this.score;
+
+        // functions that are called right after collision
+        //enemyElm.showingDead();
         this.removeEnemy(enemyInstance);
-        enemyInstance.hide();
         this.removeBullet(bulletInstance);
-        bulletInstance.hide();
-        
+
+        console.log("collision ");
+        // bulletInstance.hide();
       }
     });
   }
@@ -79,12 +88,13 @@ class Game {
   removeEnemy(enemyInstance) {
     if (enemyInstance.positionX <= -enemyInstance.width) {
       const enemyIndex = this.enemiesArr.indexOf(enemyInstance);
+      // Remove the enemy instance from the enemies array
       this.enemiesArr.splice(enemyIndex, 1);
+      // Remove the enemy element from the DOM
       enemyInstance.enemyElm.remove();
     }
   }
   removeBullet(bulletInstance) {
-    const boardElm = document.getElementById("board");
     if (bulletInstance.positionX >= 90) {
       const bulletIndex = this.bulletsArr.indexOf(bulletInstance);
       this.bulletsArr.splice(bulletIndex, 1);
@@ -96,7 +106,7 @@ class Game {
 class Player {
   constructor() {
     this.width = 8;
-    this.height = 15;
+    this.height = 8;
     this.positionX = 0;
     this.positionY = 0;
     this.playerElm = document.getElementById("player");
@@ -106,13 +116,13 @@ class Player {
   }
   moveUp() {
     if (this.positionY > 0) {
-      this.positionY = this.positionY - 3;
+      this.positionY = this.positionY - 5;
       this.playerElm.style.top = this.positionY + "vh";
     }
   }
   moveDown() {
-    if (this.positionY < 100 - this.height) {
-      this.positionY = this.positionY + 3;
+    if (this.positionY < 90 - this.height) {
+      this.positionY = this.positionY + 5;
       this.playerElm.style.top = this.positionY + "vh";
     }
   }
@@ -120,7 +130,7 @@ class Player {
 
 class Bullet {
   constructor(playerPositionX, playerPositionY) {
-    this.width = 3;
+    this.width = 2;
     this.height = 3;
     this.positionX = playerPositionX + 10;
     this.positionY = playerPositionY + 2;
@@ -128,7 +138,7 @@ class Bullet {
 
     this.createDomElement();
   }
-
+  // creating the bullet element
   createDomElement() {
     this.bulletElm.className = "bullet";
     this.bulletElm.style.width = this.width + "vw";
@@ -148,7 +158,8 @@ class Bullet {
   removeBullet() {
     this.bulletElm.remove();
   }
-  hide(){
+  //function to make the enemy disappear that I call inside the class Game
+  hide() {
     this.bulletElm.style.display = "none";
   }
 }
@@ -156,14 +167,14 @@ class Bullet {
 class Enemy {
   constructor() {
     this.width = 10;
-    this.height = 20;
-    this.positionX = 100;
+    this.height = 12;
+    this.positionX = 90;
     this.positionY = Math.floor(Math.random() * 80);
     this.enemyElm = null;
 
     this.createDomElement();
   }
-
+  // creating the enemy class and setting it's sizes
   createDomElement() {
     this.enemyElm = document.createElement("div");
 
@@ -179,10 +190,13 @@ class Enemy {
     this.positionX--;
     this.enemyElm.style.left = this.positionX + "vw";
   }
-  hide(){
+  //function to make the enemy disappear that I call inside the class Game
+  hide() {
     this.enemyElm.style.display = "none";
   }
 }
+
+
 
 const game = new Game();
 game.play();
