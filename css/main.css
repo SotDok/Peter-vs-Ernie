@@ -46,6 +46,7 @@ body {
   border-radius: 50%;
 }
 
+
 #score {
   position: fixed;
   top: 0;
@@ -60,3 +61,4 @@ body {
 audio {
   display: none;
 }
+
