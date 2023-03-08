@@ -48,25 +48,25 @@ class Game {
   //collision on X and Y axis.
   detectCollision(enemyInstance) {
     if (
-      this.player.positionY + this.player.height >= enemyInstance.positionY &&
-      this.player.positionY <= enemyInstance.positionY + enemyInstance.height &&
-      this.player.positionX + this.player.width >= enemyInstance.positionX &&
-      this.player.positionX <= enemyInstance.positionX + enemyInstance.width
+      this.player.positionY + this.player.height > enemyInstance.positionY &&
+      this.player.positionY < enemyInstance.positionY + enemyInstance.height &&
+      this.player.positionX + this.player.width > enemyInstance.positionX &&
+      this.player.positionX < enemyInstance.positionX + enemyInstance.width
     ) {
       console.log("we have died");
       // redirecting to new page when you lose.
-      // window.location.href ="../tryagain.html";
+       window.location.href ="../tryagain.html";
     }
   }
   detectBulletCollision(bulletInstance) {
     this.enemiesArr.forEach((enemyInstance) => {
       if (
-        bulletInstance.positionY >= enemyInstance.positionY &&
-        bulletInstance.positionY <=
+        bulletInstance.positionY > enemyInstance.positionY &&
+        bulletInstance.positionY <
           enemyInstance.positionY + enemyInstance.height &&
-        bulletInstance.positionX + bulletInstance.width >=
+        bulletInstance.positionX + bulletInstance.width >
           enemyInstance.positionX &&
-        bulletInstance.positionX <=
+        bulletInstance.positionX <
           enemyInstance.positionX + enemyInstance.width
       ) {
         //Setting and updating the score
@@ -76,17 +76,20 @@ class Game {
 
         // functions that are called right after collision
         //enemyElm.showingDead();
-        this.removeEnemy(enemyInstance);
-        this.removeBullet(bulletInstance);
+        //this.removeEnemy(enemyInstance);
+  
+        
+        enemyInstance.enemyElm.remove();
+        bulletInstance.bulletElm.remove();
 
-        console.log("collision ");
+        //console.log("collision ");
         // bulletInstance.hide();
       }
     });
   }
 
   removeEnemy(enemyInstance) {
-    if (enemyInstance.positionX <= -enemyInstance.width) {
+    if (enemyInstance.positionX <= 5) {
       const enemyIndex = this.enemiesArr.indexOf(enemyInstance);
       // Remove the enemy instance from the enemies array
       this.enemiesArr.splice(enemyIndex, 1);
@@ -95,12 +98,13 @@ class Game {
     }
   }
   removeBullet(bulletInstance) {
-    if (bulletInstance.positionX >= 90) {
+    if (bulletInstance.positionX >= 60) {
       const bulletIndex = this.bulletsArr.indexOf(bulletInstance);
       this.bulletsArr.splice(bulletIndex, 1);
-      bulletInstance.removeBullet();
+      bulletInstance.bulletElm.remove();
     }
-  }
+    
+  } 
 }
 
 class Player {
