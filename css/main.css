@@ -6,7 +6,7 @@ body {
   
 #board {
   background-color: white;
-  background-image: url("/images/backgroundLOL.jpg");
+  background-image: url("../images/backgroundLOL.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -16,7 +16,7 @@ body {
 }
 
 #player {
-  background-image: url("/images/petergr.jpg");
+  background-image: url("../images/petergr.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
@@ -24,7 +24,7 @@ body {
 }
 
 .enemy {
-  background-image: url("/images/Ernie.webp");
+  background-image: url("../images/Ernie.webp");
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 50%;
