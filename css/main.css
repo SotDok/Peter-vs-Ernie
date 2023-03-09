@@ -56,8 +56,9 @@ audio {
 #intro {
   position: absolute;
   top: 30%;
-  left: 30%;
+  left: 20%;
   text-align: center;
+  justify-content: center;
 }
 
 #start {
