@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
 }
-  
+
 #board {
   background-color: white;
   background-image: url("../images/backgroundLOL.jpg");
@@ -32,7 +32,7 @@ body {
 }
 
 .enemy.dead {
-  background-image: url('../js/imagesjs/deadErnie.webp');
+  background-image: url("../js/imagesjs/deadErnie.webp");
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 50%;
@@ -45,7 +45,6 @@ body {
   position: absolute;
   border-radius: 50%;
 }
-
 
 #score {
   position: fixed;
@@ -61,4 +60,3 @@ body {
 audio {
   display: none;
 }
-
