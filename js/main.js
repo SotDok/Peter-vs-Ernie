@@ -60,7 +60,7 @@ class Game {
     ) {
       console.log("we have died");
       // redirecting to new page when you lose.
-      window.location.href = "../tryagain.html";
+      window.location.href = "./../tryagain.html";
     }
   }
   detectBulletCollision(bulletInstance) {
