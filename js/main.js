@@ -43,7 +43,7 @@ class Game {
       } else if (e.key === "ArrowDown") {
         this.player.moveDown();
       } else if (e.key === " " && bulletCount < 1) {
-        // I limit the number of bullets to 2 every 4 seconds
+        // I limit the number of bullets to 1 every 2 seconds
         const myBullet = new Bullet(
           this.player.positionX,
           this.player.positionY
@@ -122,8 +122,8 @@ class Game {
 
 class Player {
   constructor() {
-    this.width = 11;
-    this.height = 14;
+    this.width = 10;
+    this.height = 12;
     this.positionX = 0;
     this.positionY = 0;
     this.playerElm = document.getElementById("player");
@@ -133,13 +133,13 @@ class Player {
   }
   moveUp() {
     if (this.positionY > 0) {
-      this.positionY = this.positionY - 8;
+      this.positionY = this.positionY - 10;
       this.playerElm.style.top = this.positionY + "vh";
     }
   }
   moveDown() {
-    if (this.positionY < 95 - this.height) {
-      this.positionY = this.positionY + 8;
+    if (this.positionY < 90 - this.height) {
+      this.positionY = this.positionY + 10;
       this.playerElm.style.top = this.positionY + "vh";
     }
   }
@@ -183,9 +183,9 @@ class Bullet {
 
 class Enemy {
   constructor() {
-    this.width = 12;
-    this.height = 20;
-    this.positionX = 85;
+    this.width = 10;
+    this.height = 15;
+    this.positionX = 88;
     this.positionY = Math.floor(Math.random() * 80);
     this.enemyElm = null;
 
