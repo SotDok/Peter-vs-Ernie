@@ -4,10 +4,14 @@ class Game {
     this.enemiesArr = [];
     this.bulletsArr = [];
     this.score = 0;
+    this.audio = new Audio("./audio/bird.mp3");
   }
   play() {
     this.player = new Player();
-
+    this.audio.addEventListener("canplay", (event) => this.audio.play());
+    
+    
+    
     this.attachEventListeners();
 
     setInterval(() => {
@@ -212,5 +216,5 @@ class Enemy {
 }
 
 const game = new Game();
-
 game.play();
+
