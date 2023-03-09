@@ -138,7 +138,7 @@ class Player {
     }
   }
   moveDown() {
-    if (this.positionY < 90 - this.height) {
+    if (this.positionY < 85 - this.height) {
       this.positionY = this.positionY + 10;
       this.playerElm.style.top = this.positionY + "vh";
     }
