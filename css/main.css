@@ -31,16 +31,8 @@ body {
   position: absolute;
 }
 
-.enemy.dead {
-  background-image: url("../js/imagesjs/deadErnie.webp");
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-  position: absolute;
-}
-
 .bullet {
-  background-color: silver;
+  background-color: rgb(241, 1, 1);
   background-size: contain;
   position: absolute;
   border-radius: 50%;
@@ -59,4 +51,31 @@ body {
 
 audio {
   display: none;
+}
+
+#intro {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  text-align: center;
+}
+
+#start {
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.instructions-box {
+  border: 2px solid black;
+  padding: 10px;
+  background-color: white;
+}
+.instructions {
+  color: black;
+  font-size: 40px;
 }

@@ -8,16 +8,15 @@ class Game {
   }
   play() {
     this.player = new Player();
+    this.audio.loop = true;
     this.audio.addEventListener("canplay", (event) => this.audio.play());
-    
-    
-    
+
     this.attachEventListeners();
 
     setInterval(() => {
       const myEnemy = new Enemy();
       this.enemiesArr.push(myEnemy);
-    }, 1000);
+    }, 800);
 
     setInterval(() => {
       this.enemiesArr.forEach((enemyInstance) => {
@@ -31,20 +30,20 @@ class Game {
         this.detectBulletCollision(bulletInstance);
         this.removeBullet(bulletInstance);
       });
-    }, 100);
+    }, 80);
   }
   attachEventListeners() {
     let bulletCount = 0;
     setInterval(() => {
       bulletCount = 0;
-    }, 4000);
+    }, 2000);
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowUp") {
         this.player.moveUp();
       } else if (e.key === "ArrowDown") {
         this.player.moveDown();
-      } else if (e.key === " " && bulletCount < 2) {
-        // i limit the number of bullets to 2 every 4 seconds
+      } else if (e.key === " " && bulletCount < 1) {
+        // I limit the number of bullets to 2 every 4 seconds
         const myBullet = new Bullet(
           this.player.positionX,
           this.player.positionY
@@ -77,7 +76,6 @@ class Game {
           enemyInstance.positionX &&
         bulletInstance.positionX < enemyInstance.positionX + enemyInstance.width
       ) {
-        
         this.updateScore();
         // functions that are called right after collision
 
@@ -114,18 +112,18 @@ class Game {
       bulletInstance.bulletElm.remove();
     }
   }
-//Setting and updating the score
-  updateScore(){
-        this.score += 5;
-        const scoreElement = document.getElementById("score");
-        scoreElement.textContent = "Score: " + this.score;
-        }
+  //Setting and updating the score
+  updateScore() {
+    this.score += 5;
+    const scoreElement = document.getElementById("score");
+    scoreElement.textContent = "Score: " + this.score;
+  }
 }
 
 class Player {
   constructor() {
-    this.width = 8;
-    this.height = 12;
+    this.width = 11;
+    this.height = 14;
     this.positionX = 0;
     this.positionY = 0;
     this.playerElm = document.getElementById("player");
@@ -215,6 +213,12 @@ class Enemy {
   }
 }
 
-const game = new Game();
-game.play();
+const startGameButton = document.getElementById("start");
+const intro = document.getElementById("intro");
 
+startGameButton.addEventListener("click", () => {
+  startGameButton.style.display = "none";
+  intro.style.display = "none";
+  const game = new Game();
+  game.play();
+});
