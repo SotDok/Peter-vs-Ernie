@@ -6,9 +6,9 @@ Peter vs Ernie is the new game-braking trivial game that HAS COME TO STAY! In on
 
 The game has a basic movement structure:
 
-ArrowUp (↑) to move Up
-ArrowDown (↓) to move down
-Space to shoot
+- ArrowUp (↑) to move Up
+- ArrowDown (↓) to move down
+- Space to shoot
 
 
 # MVPs 
