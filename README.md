@@ -14,7 +14,7 @@ The game has a basic movement structure:
 
 - ArrowUp (↑) to move Up
 - ArrowDown (↓) to move down
-- Space to shoot
+- Space to shoot 🐔 🐔
 
 
 # DEMO
