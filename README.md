@@ -20,7 +20,7 @@ The game has a basic movement structure:
 # DEMO
 
 You can get a first try of our BETA here: 
-[Peter vs Ernie]  (https://sotdok.github.io/project-game/)
+[Peter vs Ernie]  (https://sotdok.github.io/Peter-vs-Ernie/)
 
 # MVPs 
 
