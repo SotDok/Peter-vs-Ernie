@@ -1,4 +1,10 @@
+![](images/fight.png)
+
+# **Peter vs Ernie**
+
+
 # Description 
+
 
 Peter vs Ernie is the new game-braking trivial game that HAS COME TO STAY! In one of the most well known PvP arenas in history of gaming, Howling Abyss, Ernie has challenged Peter to one of their casual fights. However he has brought his clones with him. Peter equiped with only courage and his AK-47 with a limited amout of bullets per time, will try his hardest to emerge victorious from this legendary battle and go back to his loving family. 
 
@@ -10,6 +16,11 @@ The game has a basic movement structure:
 - ArrowDown (↓) to move down
 - Space to shoot
 
+
+# DEMO
+
+You can get a first try of our BETA here: 
+[Peter vs Ernie]  (https://sotdok.github.io/project-game/)
 
 # MVPs 
 
@@ -29,7 +40,7 @@ The game has a basic movement structure:
 
 
 # Further Improvements
-- Make the enemies explode move in random speed
+- Make the enemies explode and deal damage before colliding with you
 - Prizes
 - Even more animations and sounds
 - Make the game responsive
